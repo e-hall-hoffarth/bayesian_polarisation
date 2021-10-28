@@ -15,16 +15,16 @@
 At $t=0$ a set $C$ of $n$ agents start with and $(h \times 1)$ vector of prior beliefs over a set of $h$ issues which together form the $(n \times h)$ matrix $\pi_0$. At each time step $t > 1$ every agent will simultaniously update their beliefs according to the following procedure. Consider, without loss of generality, the case of agent 0. At the beginning of the period agent 0 will select "consideration set"; a subset of other agents $c \in C$ of size $|c|$ with whom to update their beliefs. Other agents are selected into $c$ without replacement with a probability inversely proportional to their distance in views to agent 0 (in l2-norm) and proportional to the l2-norm of that agent's belief vector, as in equation (\ref{consideration_prob}):
 
 \begin{equation}
-    P_0(i \in c) \propto \frac{{||\pi_i||}_2^\epsilon}{{||\pi_i - \pi_0||}_2^2}
+    P_0(i \in c) \propto \frac{{||\pi_i||}_2^\epsilon}{{||\pi_i - \pi_0||}_\delta}
     \label{consideration_prob}
 \end{equation}
 
-Where $\epsilon$ is an "extreme bias" parameter. This model embodies two mechanisms. Firstly, agents are more likely to choose other agents with similar views in their consideration set. This probability updates at every time $t$, so it captures the idea that agents may endogenously choose the views that they are exposed to, for example, on social media. Secondly, agents are more likely to consider the views of agents who lie further from the centre. We call this "extreme bias." Intuitively, this reflects the incentive of media organizations to report on controversial topics or views because they generate more viewer engagement. The relative strength of these effects depends on the parameter $\epsilon$.
+Where $\epsilon$ is an "extreme bias" parameter, and $\delta$ is a "endogenous selection" parameter. This model embodies two mechanisms. Firstly, agents are more likely to choose other agents with similar views in their consideration set. This probability updates at every time $t$, so it captures the idea that agents may endogenously choose the views that they are exposed to, for example, on social media. Secondly, agents are more likely to consider the views of agents who lie further from the centre. We call this "extreme bias." Intuitively, this reflects the incentive of media organizations to report on controversial topics or views because they generate more viewer engagement. The relative strength of these effects depends on the parameter $\epsilon$. The parameter $\delta$ captures how agents decide who to pick in their consideration set. If $\delta \to \infty$ then the agents select uniformly without prejudice from all agents. If $\delta \to 0$ then agents give lexiographic preference to agents with whom they have the exact same view on the largest number of dimensions (although this will never happen in practice, as views are continuous). In general, we parameterize $\delta \in (0, 1)$, to capture the following intuition: we believe that agents are more likely to consider the views of other agents particularly when they are close on most issues, even if they are far away on a small number of them.  
 
 Having chosen a consideration set, agent 0 now applies a simple updating rule: they update their belief in period $t+1$ to be the geometric mean of their prior beliefs and the mean of their consideration set. The equation for this is shown in (\ref{updating_rule}):
 
 \begin{equation}
-    \pi_{0, t+1} = \pi_{0, t} + \frac{\pi_{0, t} - \overline{\pi_{c, t}}}{2}
+    \pi_{0, t+1} = \pi_{0, t} + \frac{\overline{\pi_{c, t}} - \pi_{0, t}}{2}
     \label{updating_rule}
 \end{equation}
 
@@ -52,13 +52,13 @@ We obtain the following results over 50 iterations (each image is shown 10 itera
 
 \begin{center}
 
-\includegraphics[width=\linewidth]{200_10_0_2_1.png}
-\includegraphics[width=\linewidth]{200_10_0_2_11.png}
-\includegraphics[width=\linewidth]{200_10_0_2_21.png}
-\includegraphics[width=\linewidth]{200_10_0_2_31.png}
-\includegraphics[width=\linewidth]{200_10_0_2_41.png}
-\includegraphics[width=\linewidth]{200_10_0_2_51.png}
-    
+\includegraphics[width=\linewidth]{200_10_0_9_8.png}
+\includegraphics[width=\linewidth]{200_10_0_9_18.png}
+\includegraphics[width=\linewidth]{200_10_0_9_28.png}
+\includegraphics[width=\linewidth]{200_10_0_9_38.png}
+\includegraphics[width=\linewidth]{200_10_0_9_48.png}
+\includegraphics[width=\linewidth]{200_10_0_9_58.png}
+
 \end{center}
 
 We can observe in these results two distinct forms of polarization. The first is a sort of dimensionality reduction (perhaps call this multidimensional polarization). The initially two-dimensional space of views eventually becomes essentially one-one-dimensional as agents line up along the diagonal. Initially, there is some group of agents who move up towards the top right, but eventually the fall back down into the dominant line. In this model there is a strong tendency towards conformity. The other is "absolute polarization," whereby we see agents moving out towards extreme positions. The relative strength of these effects will depend on the parameterization of the model, exactly how remains to be investigated.
