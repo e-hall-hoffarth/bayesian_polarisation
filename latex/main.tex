@@ -48,19 +48,20 @@ We simulate the model over $50$ iterations with the following parameters:
     \item $\epsilon = 1.5$ 
 \end{itemize}
 
-We obtain the following results over 50 iterations (each image is shown 10 iterations after the last):
+We obtain the following results over 50 iterations (each image is shown 5 iterations after the last, with the exception of the last image, which is 100 iterations after the former):
 
 \begin{center}
 
-\includegraphics[width=\linewidth]{200_10_0_9_8.png}
-\includegraphics[width=\linewidth]{200_10_0_9_18.png}
-\includegraphics[width=\linewidth]{200_10_0_9_28.png}
-\includegraphics[width=\linewidth]{200_10_0_9_38.png}
-\includegraphics[width=\linewidth]{200_10_0_9_48.png}
-\includegraphics[width=\linewidth]{200_10_0_9_58.png}
+\includegraphics[width=\linewidth]{200_10_0_8_0.png}
+\includegraphics[width=\linewidth]{200_10_0_8_10.png}
+\includegraphics[width=\linewidth]{200_10_0_8_15.png}
+\includegraphics[width=\linewidth]{200_10_0_8_20.png}
+\includegraphics[width=\linewidth]{200_10_0_8_25.png}
+\includegraphics[width=\linewidth]{200_10_0_8_30.png}
+\includegraphics[width=\linewidth]{200_10_0_8_130.png}
 
 \end{center}
 
-We can observe in these results two distinct forms of polarization. The first is a sort of dimensionality reduction (perhaps call this multidimensional polarization). The initially two-dimensional space of views eventually becomes essentially one-one-dimensional as agents line up along the diagonal. Initially, there is some group of agents who move up towards the top right, but eventually the fall back down into the dominant line. In this model there is a strong tendency towards conformity. The other is "absolute polarization," whereby we see agents moving out towards extreme positions. The relative strength of these effects will depend on the parameterization of the model, exactly how remains to be investigated.
+We can observe in these results two distinct forms of polarization. The first is a sort of dimensionality reduction (perhaps call this multidimensional polarization). The initially uncorrelated space of views eventually becomes essentially one-dimensional as agents line up along the diagonal in each cross-section. Initially, there are perhaps some kinks or triangular shapes, but eventually the fall back down into the dominant line. In this model there is a strong tendency towards conformity. The other is "absolute polarization," whereby we see agents moving out towards extreme positions. Especially after a large number of iterations, we see that the model converges to a state where agents hold essentially only one of two views. The relative strength of these effects will depend on the parameterization of the model, exactly how remains to be investigated.
 
 \end{document}
